@@ -1,10 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.User;
-
-import java.util.List;
+import com.example.demo.model.User;
 
 public interface AccountService {
-  List<User> findAll();
-  void register(String name, String email, String password, String[] roles);
+  void register(String name, String email, String rawPassword, String[] roles);
+  void changePassword(User user, String newRawPassword);
+  void changeRole(User user, String[] roles);
+  void changeProfile(User user, String nickName, byte[] avatarImage, String deleteAvatarImage);
+  void delete(User user);
+  boolean exists(String email);
 }
