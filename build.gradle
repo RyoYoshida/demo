@@ -31,6 +31,7 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -38,11 +39,11 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
-test {
-	useJUnitPlatform()
+bootJar {
+    archiveFileName = "${archivesBaseName}.jar"
+    launchScript()
 }
 
-jar {
-    baseName = 'demo'
-    version = '0.0.1-SNAPSHOT'
+test {
+    useJUnitPlatform()
 }
