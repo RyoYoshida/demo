@@ -24,15 +24,10 @@ import lombok.extern.slf4j.Slf4j;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   private SimpleUserDetailsService simpleUserDetailsService;
-  private PasswordEncoder passwordEncoder;
 
   @Autowired
   public void setSimpleUserDetailsService(SimpleUserDetailsService simpleUserDetailsService) {
     this.simpleUserDetailsService = simpleUserDetailsService;
-  }
-  @Autowired
-  public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
-    this.passwordEncoder = passwordEncoder;
   }
 
   @Bean
@@ -54,22 +49,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // ### DaoAuthenticationConfigurer
         .userDetailsService(simpleUserDetailsService)
         // ### DaoAuthenticationConfigurer
-        .passwordEncoder(passwordEncoder)
+        .passwordEncoder(passwordEncoder())
     ;
-
-/*
-    auth
-        // ### InMemoryUserDetailsManagerConfigurer
-        .inMemoryAuthentication()
-        //.passwordEncoder(passwordEncoder)
-        .withUser("user")
-          .password(passwordEncoder.encode("user"))
-        .roles("USER")
-        .and()
-        .withUser("admin")
-          .password(passwordEncoder.encode("admin"))
-          .roles("ADMIN");
-*/
   }
 
   @Override
