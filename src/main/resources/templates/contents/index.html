@@ -8,14 +8,14 @@
 </head>
 <body>
 	<div layout:fragment="content" th:remove="tag" id="app">
-		<div sec:authorize="!isAuthenticated()"
+		<div sec:authorize="isAuthenticated()"
 			class="row justify-content-center">
 			<div class="container-fluid">
 				<div class="row">
 					<nav
 						class="col-md-2 col-sm-6 col-6 d-none d-md-block bg-dark sidebar">
 						<div class="sidebar-sticky">
-							<ul class="nav flex-column">
+							<ul class="nav flex-column" onclick="unimplementedAlert()">
 								<li class="nav-item"><a class="nav-link active" href="#">
 										<span data-feather="home"></span> <!-- Dashboard <span class="sr-only">(current)</span> -->
 										マイマップ <span class="sr-only">(現在位置)</span>
@@ -48,12 +48,15 @@
 							<div class="btn-toolbar mb-2 mb-md-0">
 								<div class="btn-group mr-2">
 									<!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button> -->
-									<button type="button" class="btn btn-sm btn-outline-secondary">共有</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="unimplementedAlert()">共有</button>
 									<!-- <button type="button" class="btn btn-sm btn-outline-secondary">Export</button> -->
-									<button type="button" class="btn btn-sm btn-outline-secondary">出力</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="unimplementedAlert()">出力</button>
 								</div>
 								<button type="button"
-									class="btn btn-sm btn-outline-secondary dropdown-toggle">
+									class="btn btn-sm btn-outline-secondary dropdown-toggle"
+									onclick="unimplementedAlert()">
 									<span data-feather="calendar"></span>
 									<!-- This week -->
 									今週
@@ -66,5 +69,71 @@
 					</main>
 				</div>
 			</div>
+		</div>
+		<div sec:authorize="!isAuthenticated()"
+			class="row justify-content-center">
+			<div class="container-fluid">
+				<div class="row">
+					<nav
+						class="col-md-2 col-sm-6 col-6 d-none d-md-block bg-dark sidebar">
+						<div class="sidebar-sticky">
+							<ul class="nav flex-column" onclick="unimplementedAlert()">
+								<li class="nav-item"><a class="nav-link active" href="#">
+										<span data-feather="home"></span> <!-- Dashboard <span class="sr-only">(current)</span> -->
+										マイマップ <span class="sr-only">(現在位置)</span>
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										data-feather="file"></span> 履歴
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										data-feather="shopping-cart"></span> <!-- Products --> お気に入り
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										data-feather="users"></span> <!-- Customers --> 公開
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										data-feather="bar-chart-2"></span> <!-- Reports --> ゴミ箱
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										data-feather="layers"></span> <!-- Integrations --> テンプレート
+								</a></li>
+							</ul>
+						</div>
+					</nav>
+
+					<main role="main"
+						class="col-md-9 col-sm-6 col-4 ml-sm-auto col-lg-10 px-4">
+						<div
+							class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+							<!-- <h1 class="h2">Dashboard</h1> -->
+							<h1 class="h2">マイマップ</h1>
+							<div class="btn-toolbar mb-2 mb-md-0">
+								<div class="btn-group mr-2">
+									<!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button> -->
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="unimplementedAlert()">共有</button>
+									<!-- <button type="button" class="btn btn-sm btn-outline-secondary">Export</button> -->
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="unimplementedAlert()">出力</button>
+								</div>
+								<button type="button"
+									class="btn btn-sm btn-outline-secondary dropdown-toggle"
+									onclick="unimplementedAlert()">
+									<span data-feather="calendar"></span>
+									<!-- This week -->
+									今週
+								</button>
+							</div>
+						</div>
+						<p>セーブしたマインドマップが表示されます。</p>
+						<canvas class="my-4 w-100" id="myChart" width="900" height="380">
+						</canvas>
+					</main>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
 </body>
 </html>

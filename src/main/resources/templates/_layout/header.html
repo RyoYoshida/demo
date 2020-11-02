@@ -16,13 +16,13 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" th:classappend="${#strings.endsWith(#request.getRequestURI(),'/menu') ? 'active' : ''}">
-                <a class="nav-link" href="/map" th:href="@{/map}">新しいマインドマップ</a>
+                <a class="nav-link" href="/map" th:href="@{/map}">マインドマップ</a>
             </li>
             <li class="nav-item" th:classappend="${#strings.endsWith(#request.getRequestURI(),'/menu') ? 'active' : ''}">
-                <a class="nav-link" href="/menu" th:href="@{/menu}">フォルダ</a>
+                <a class="nav-link" onclick="unimplementedAlert()">フォルダ</a>
             </li>
             <li class="nav-item" th:classappend="${#strings.endsWith(#request.getRequestURI(),'/menu') ? 'active' : ''}">
-                <a class="nav-link" href="/menu" th:href="@{/menu}">インポート</a>
+                <a class="nav-link" onclick="unimplementedAlert()">インポート</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">

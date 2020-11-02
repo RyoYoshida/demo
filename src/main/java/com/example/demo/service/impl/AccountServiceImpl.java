@@ -1,12 +1,7 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.auth.SimpleLoginUser;
-import com.example.demo.auth.UserRolesUtil;
-import com.example.demo.model.User;
-import com.example.demo.model.UserProfile;
-import com.example.demo.repository.UserRepository;
-import com.example.demo.service.AccountService;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Set;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,7 +11,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Set;
+import com.example.demo.auth.SimpleLoginUser;
+import com.example.demo.auth.UserRolesUtil;
+import com.example.demo.model.User;
+import com.example.demo.model.UserProfile;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.service.AccountService;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
